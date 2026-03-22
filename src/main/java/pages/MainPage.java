@@ -11,6 +11,12 @@ public class MainPage extends BasePage {
         super(driver);
     }
 
+    // ======================================BASE TEST=================================================================
+    public void acceptCookies() {
+        click(cookieButton);
+    }
+    // ================================================================================================================
+
     // ======================================DROPDOWN TEST=============================================================
     public void clickQuestion(int index) {
         WebElement element = driver.findElement(getQuestion(index));
@@ -98,5 +104,8 @@ public class MainPage extends BasePage {
     private final By orderStatusGoButton = By.xpath("//button[normalize-space()='Go!']");
     //локатор поля для ввода номера заказа
     private final By orderNumberField = By.xpath("//input[@placeholder='Введите номер заказа']");
+
+    //локатор кнопки принятия куков
+    private final By cookieButton = By.id("rcc-confirm-button");
     //=================================================================================================================
 }

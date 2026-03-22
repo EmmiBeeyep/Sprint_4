@@ -1,7 +1,7 @@
+import config.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -28,8 +28,8 @@ public class BaseTest {
         mainPage = new MainPage(driver);
         orderPage = new OrderPage(driver);
 
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        driver.findElement(By.id("rcc-confirm-button")).click();
+        driver.get(Config.BASE_URL);
+        mainPage.acceptCookies();
     }
 
     @After

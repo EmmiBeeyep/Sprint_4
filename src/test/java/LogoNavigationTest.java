@@ -1,3 +1,4 @@
+import config.Config;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +17,7 @@ public class LogoNavigationTest extends BaseTest {
         mainPage.clickScooterLogo();
 
         Assert.assertEquals(
-                "https://qa-scooter.praktikum-services.ru/",
+                Config.BASE_URL,
                 mainPage.getCurrentUrl()
         );
     }
@@ -30,7 +31,7 @@ public class LogoNavigationTest extends BaseTest {
         // Нажимаем на логотип Яндекс
         mainPage.clickYandexLogo();
 
-        new WebDriverWait(driver, Duration.ofSeconds(5))
+        new WebDriverWait(driver, Duration.ofSeconds(Config.TIMEOUT))
                 .until(d -> d.getWindowHandles().size() > 1);
 
         for (String window : driver.getWindowHandles()) {
